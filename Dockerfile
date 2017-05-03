@@ -9,6 +9,8 @@ RUN chown -R nexus:nexus ${NEXUS_HOME}/etc \
 
 COPY start.sh /usr/local/bin
 
+COPY devbox.* /mycerts/
+
 USER nexus
 
 EXPOSE 8443
