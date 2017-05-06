@@ -16,7 +16,9 @@ USER nexus
 
 # nexus webinterface
 EXPOSE 8443
-# port that will be used for the docker registry
+# port that will be used for the docker registry group
 EXPOSE 8444
+# port that will be used for pushing to the private docker registry
+EXPOSE 8445
 
 CMD start.sh
