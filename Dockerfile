@@ -1,4 +1,7 @@
-FROM sonatype/docker-nexus3
+FROM sonatype/nexus3:3.3.1
+
+ENV MYCERTNAME=mycertname
+ENV MYCERTPASSWORD=mycertpassword
 
 USER root
 
@@ -9,10 +12,11 @@ RUN chown -R nexus:nexus ${NEXUS_HOME}/etc \
 
 COPY start.sh /usr/local/bin
 
-COPY devbox.* /mycerts/
-
 USER nexus
 
+# nexus webinterface
 EXPOSE 8443
+# port that will be used for the docker registry
+EXPOSE 8444
 
 CMD start.sh
